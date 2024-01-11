@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="02-rock-paper-scissors.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="favicon-32x32.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style></style>
+  </head>
+  <body>
+    <h1>Rock Paper Scissors</h1>
+
+    <article class="button-wrapper">
+      <button
+        onclick="
+      playGame('rock');
+
+      // Change the button style when clicked 
+      document.querySelector('.paper-btn').classList.remove('clicked');
+      document.querySelector('.scissors-btn').classList.remove('clicked');
+      document.querySelector('.rock-btn').classList.add('clicked');
+
+      document.querySelector('.js-reset-score-button').innerText = 'Reset Score'
+      "
+        class="js-moves-button moves-button rock-btn"
+      >
+        <img
+          src="images/rock-emoji.png"
+          alt="Rock sign emoji"
+          class="moves-img"
+        />
+      </button>
+      <button
+        onclick="
+    playGame('paper');
+
+    // Change the button style when clicked 
+    document.querySelector('.rock-btn').classList.remove('clicked');
+    document.querySelector('.scissors-btn').classList.remove('clicked');
+    document.querySelector('.paper-btn').classList.add('clicked');
+
+    document.querySelector('.js-reset-score-button').innerText = 'Reset Score'
+
+    "
+        class="js-moves-button moves-button paper-btn"
+      >
+        <img
+          src="images/paper-emoji.png"
+          alt="Paper sign emoji"
+          class="moves-img"
+        />
+      </button>
+      <button
+        onclick="
+    playGame('scissors');
+
+    // Change the button style when clicked 
+    document.querySelector('.paper-btn').classList.remove('clicked');
+    document.querySelector('.rock-btn').classList.remove('clicked');
+    document.querySelector('.scissors-btn').classList.add('clicked');
+
+    document.querySelector('.js-reset-score-button').innerText = 'Reset Score'
+
+    "
+        class="js-moves-button moves-button scissors-btn"
+      >
+        <img
+          src="images/scissors-emoji.png"
+          alt="Scissors sign emoji"
+          class="moves-img"
+        />
+      </button>
+    </article>
+    <p class="js-results results"></p>
+    <p class="js-moves moves"></p>
+    <p class="js-score score"></p>
+    <button
+      onclick="
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+    document.querySelector('.js-score').innerText = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+    localStorage.removeItem('score');
+
+    document.querySelector('.rock-btn').classList.remove('clicked');
+    document.querySelector('.paper-btn').classList.remove('clicked');
+    document.querySelector('.scissors-btn').classList.remove('clicked');
+
+    document.querySelector('.js-reset-score-button').innerText = 'Score Reset'
+
+    // Remove background colors on reset
+    document.querySelector('body').classList.remove('bg-color-tie');
+    document.querySelector('body').classList.remove('bg-color-lose');
+    document.querySelector('body').classList.remove('bg-color-win');
+    "
+      class="js-reset-score-button reset-score-button"
+    >
+      Reset Score
+    </button>
+    <script src="02-rock-paper-scissors.js"></script>
+  </body>
+</html>
